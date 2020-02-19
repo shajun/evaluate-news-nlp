@@ -1,8 +1,28 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
+console.log(`Your API key is ${process.env.API_KEY}`);
+
 var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var aylien = require('aylien_textapi');
+
+// set aylien API credentias
+var textapi = new aylien({
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
+});
+
+// textapi.semantic({
+//   'text': 'John is a very good football player'
+// }, function(error, response) {
+//   if (error === null) {
+//     console.log(response)
+//   }
+// })
 
 var json = {
   title: 'test json response',
