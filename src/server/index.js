@@ -7,7 +7,6 @@ console.log(`Your API key is ${process.env.API_KEY}`);
 // referencing packages required by the project
 var path = require('path');
 const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var aylien = require('aylien_textapi');
@@ -31,8 +30,6 @@ app.use(
 );
 
 app.use(express.static('dist'));
-
-console.log(JSON.stringify(mockAPIResponse));
 
 // GET route
 app.get('/', function(req, res) {
